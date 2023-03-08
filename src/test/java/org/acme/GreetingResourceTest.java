@@ -15,13 +15,12 @@ import io.qameta.allure.Epic;
 
 
 @QuarkusTest
-@Epic("CoolService")
-@Feature("BusinessFunction")
+@Epic("CustomerService")
+@Feature("GreetingCustomer")
 public class GreetingResourceTest {
 
     @Test
-    @DisplayName("Testing the Hello HTTP call")
-    @Story("TestsHello endpoint and validates it against a staic string")
+    @Story("Validate if the service say hello even before identifying the customer")
     public void testHelloEndpoint() {
         given()
                 .when().get("/hello")
@@ -31,8 +30,7 @@ public class GreetingResourceTest {
     }
 
     @Test
-    @DisplayName("Testing the Greetings HTTP call")
-    @Story("Tests Greeting endpoint and validates that passed name is returned in the response")
+    @Story("Validate if the service personlise the greetings after the customer login.")
     public void testGreetingEndpoint() {
         String uuid = UUID.randomUUID().toString();
         given()
